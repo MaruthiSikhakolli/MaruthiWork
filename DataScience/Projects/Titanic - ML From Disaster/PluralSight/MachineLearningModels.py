@@ -39,15 +39,15 @@ X_test_scaled = scaler.transform(X_test)
 
 # Create model after normalization and standardization by including Hyper Parameter Optimization
 ############## Logistic Regression ################
-# model_lr = LogisticRegression(random_state=0)
-# parameters = {'C':[1.0, 10.0, 50.0, 100.0, 1000.0], 'penalty':['l1', 'l2']}
-# clf = GridSearchCV(model_lr, param_grid=parameters, cv=3)
-# clf.fit(X_train_scaled, y_train)
-#
-# print("Clf Best Parameters : ", clf.best_params_)
-# print("Clf Best Score : ", clf.best_score_)
-# # Evaluate the model
-# print('Score for model: ', clf.score(X_test, y_test))
+ model_lr = LogisticRegression(random_state=0)
+ parameters = {'C':[1.0, 10.0, 50.0, 100.0, 1000.0], 'penalty':['l1', 'l2']}
+ clf = GridSearchCV(model_lr, param_grid=parameters, cv=3)
+ clf.fit(X_train_scaled, y_train)
+
+ print("Clf Best Parameters : ", clf.best_params_)
+ print("Clf Best Score : ", clf.best_score_)
+# Evaluate the model
+ print('Score for model: ', clf.score(X_test, y_test))
 
 # Model Evaluations
 # Model Score
@@ -61,7 +61,7 @@ X_test_scaled = scaler.transform(X_test)
 # print('Recall value for the logistic regression model : ', recall_score(y_test, model_lr.predict(X_test)))
 
 # Get Submission File
-# get_submission_file(test_df, clf, '03_LogisticReg.csv')
+ get_submission_file(test_df, clf, '03_LogisticReg.csv')
 
 ############## Decision Tree Classifier################
 model_dt = tree.DecisionTreeClassifier()
@@ -93,12 +93,12 @@ print('Score for model: ', clf.score(X_test, y_test))
 get_submission_file(test_df, clf, '05_RandomForest.csv')
 
 ############## XG Boost ################
-# from xgboost import XGBClassifier
-# model_XGB = XGBClassifier()
-# model_XGB.fit(X_train, y_train)
-#
-# # Evaluate the model
-# print('Score for model: ', model_XGB.score(X_test, y_test))
-#
+ from xgboost import XGBClassifier
+ model_XGB = XGBClassifier()
+ model_XGB.fit(X_train, y_train)
+
+# Evaluate the model
+ print('Score for model: ', model_XGB.score(X_test, y_test))
+
 # # Get Submission File
-# get_submission_file(test_df, model_XGB, '06_XGBoost.csv')
+ get_submission_file(test_df, model_XGB, '06_XGBoost.csv')
