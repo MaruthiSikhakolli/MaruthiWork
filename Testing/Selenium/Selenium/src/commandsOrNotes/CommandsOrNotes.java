@@ -141,6 +141,14 @@ public class CommandsOrNotes {
 		URL = driver.getCurrentUrl();
 		System.out.println(URL);
 		
+		//Difference between navigate and get methods
+		//Get : 
+		//1. Waits till complete page loads. 
+		//2. can not move forward & backward in the browser.
+		//Navigate : 
+		//1. Will not wait until the page loads, you can feel this experience only if page takes time to load, like more number of images or ajax calls etc......
+		//2. can move forward & backward in the browser.
+		
 		//Close and Quit methods
 		//close() - It closes the focused Browser.
 		driver.get("https://www.google.co.in");
@@ -227,7 +235,7 @@ public class CommandsOrNotes {
 		//Handling frames
 		//Using frame index
 		driver.get("http://seleniumhq.github.io/selenium/docs/api/java/index.html");
-		driver.switchTo().frame(2);
+		driver.switchTo().frame(2); //Frame index starts from 0
 		driver.findElement(By.xpath("html/body/div[3]/table/tbody[2]/tr[1]/td[1]/a")).click();
 		
 		//Using frame name
