@@ -1,0 +1,55 @@
+[0.001][INFO]:      ChromeDriver 26.0.1383.0 D:\Ad Tag\chromedriver.exe
+[0.481][FINE]:      Initializing session with capabilities {
+   "browserName": "chrome",
+   "platform": "ANY",
+   "version": ""
+}
+
+[0.481][INFO]:      Launching chrome: "C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-hang-monitor --disable-prompt-on-repost --dom-automation --full-memory-crash-report --no-default-browser-check --no-first-run --disable-background-networking --disable-sync --disable-translate --disable-web-resources --safebrowsing-disable-auto-update --safebrowsing-disable-download-protection --disable-client-side-phishing-detection --disable-component-update --disable-default-apps --enable-logging --log-level=1 --ignore-certificate-errors about:blank
+[0.821][INFO]:      Connected to Chrome successfully. Version: 27.0.1453.116
+[0.828][FINE]:      Command received (/session/800564c19826ebb8f3de4571a4cc6662)
+[0.828][FINE]:      Command finished (/session/800564c19826ebb8f3de4571a4cc6662) with response {
+   "sessionId": "800564c19826ebb8f3de4571a4cc6662",
+   "status": 0,
+   "value": {
+      "acceptSslCerts": false,
+      "applicationCacheEnabled": false,
+      "browserConnectionEnabled": false,
+      "browserName": "chrome",
+      "chrome.chromedriverVersion": "26.0.1383.0",
+      "cssSelectorsEnabled": true,
+      "databaseEnabled": false,
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "locationContextEnabled": false,
+      "nativeEvents": true,
+      "platform": "windows",
+      "rotatable": false,
+      "takesScreenshot": true,
+      "version": "27.0.1453.116",
+      "webStorageEnabled": true
+   }
+}
+
+[0.920][FINE]:      Command received (/session/800564c19826ebb8f3de4571a4cc6662/url) with params {
+   "url": "http://doctor.qa00.webmd.com/"
+}
+
+[0.920][FINER]:     Waiting for all views to stop loading...
+[0.922][FINER]:     Done waiting for all views to stop loading
+[16.221][FINER]:    Waiting for all views to stop loading...
+[16.223][FINER]:    Done waiting for all views to stop loading
+[16.223][WARNING]:  AfterExecuteCommand failed: Chrome did not respond to 'WaitForAllTabsToStopLoading'. Elapsed time was 0 ms.
+[16.223][FINE]:     Command finished (/session/800564c19826ebb8f3de4571a4cc6662/url) with response {
+   "sessionId": "800564c19826ebb8f3de4571a4cc6662",
+   "status": 0,
+   "value": {
+
+   }
+}
+
+[16.247][FINE]:     Command received (/session/800564c19826ebb8f3de4571a4cc6662/window/current/maximize) with params {
+   "windowHandle": "current"
+}
+
+[16.247][FINER]:    Waiting for all views to stop loading...
