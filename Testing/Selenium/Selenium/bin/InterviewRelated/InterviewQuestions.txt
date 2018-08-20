@@ -1,0 +1,27 @@
+Testing Interview Questions
+
+1. What is a use case?
+Ans. A use case is a description of a particular use of the system by an actor or user. It defines all the steps or procedure to follow when a role/actor wants to achieve particular action with the system.
+Example:
+Use case: Customer wants to join loyalty program
+Steps: 
+1. Login to system
+2. Read loyalty program instructions or T&C
+3. Click join
+4. Enter required details
+5. Submit application
+
+2. What is a test case?
+Ans. A TEST CASE is a set of conditions or variables under which a tester will determine whether a system under test satisfies requirements or works correctly.
+
+3. What is the main difference between Array and Array List?
+Ans. Array will have fixed size once declared. Array size cannot be modified.
+Array List will have dynamic size. It will change dynamically while more number of elements are added.
+
+One more important diff is array can add both objects and primitives. But array list only adds objects. if you try to add primitives, it will convert them to objects and add to it.
+
+
+
+
+
+
