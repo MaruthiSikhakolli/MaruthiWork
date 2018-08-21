@@ -420,6 +420,12 @@ public class CommandsOrNotes {
 		driver.findElement(By.xpath("//input[@id,'buttonID1']/parent"));
 		//OR
 		driver.findElement(By.xpath("//input[@id,'buttonID1']/.."));
+		//Using Child
+		driver.findElement(By.xpath("//input[@id,'buttonID1']/child"));
+		//Ancestor 
+		driver.findElement(By.xpath("//input[@id,'buttonID1']/ancestor::div[@id,'buttonID2']"));
+		//Descendant 
+		driver.findElement(By.xpath("//input[@id,'buttonID1']/descendant::div[@id,'buttonID2']"));
 		//Absolute XPath method
 		driver.findElement(By.xpath("/html/head/body/div/input"));
 		//Relative XPath method
