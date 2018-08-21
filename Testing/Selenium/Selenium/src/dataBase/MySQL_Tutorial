@@ -1,0 +1,61 @@
+MySQL Tutorial
+
+1. DISTINCT Keyword
+
+SELECT DISTINCT
+    lastname
+FROM
+    employees
+ORDER BY lastname;
+
+2. ORDERBY
+
+SELECT
+ contactLastname,
+ contactFirstname
+FROM
+ customers
+ORDER BY
+ contactLastname DESC;
+ 
+ 3. INNER JOIN - The MySQL INNER JOIN clause matches rows in one table with rows in other tables and allows you to query rows that contain columns 
+ from both tables.
+ 
+ SELECT 
+    productCode, 
+    productName, 
+    textDescription
+FROM
+    products t1
+        INNER JOIN
+    productlines t2 ON t1.productline = t2.productline;
+    
+4. LEFT OUTER JOIN - When you join the t1 table to the t2 table using the LEFT JOIN clause, if a row from the left table t1 matches a row from the 
+right table t2 based on the join condition ( t1.c1 = t2.c1 ), this row will be included in the result set.
+
+In case the row in the left table does not match with the row in the right table, the row in the left table is also selected and combined with 
+a “fake” row from the right table. The fake row contains NULL for all corresponding columns in the SELECT clause.
+
+SELECT
+ c.customerNumber,
+ c.customerName,
+ orderNumber,
+ o.status
+FROM
+ customers c
+LEFT JOIN orders o ON c.customerNumber = o.customerNumber;
+
+5. Find the nth highest salary using the TOP keyword in SQL Server
+
+SELECT TOP 1 Salary
+FROM (
+      SELECT DISTINCT TOP N Salary
+      FROM Employee
+      ORDER BY Salary DESC
+      ) AS Emp
+ORDER BY Salary
+
+6. Find the nth highest salary using the LIMIT keyword
+
+SELECT Salary FROM Employee ORDER BY Salary DESC LIMIT n-1,1
+ 
