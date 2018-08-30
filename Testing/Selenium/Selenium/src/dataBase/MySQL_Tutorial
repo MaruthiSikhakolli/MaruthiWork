@@ -18,7 +18,8 @@ FROM
 ORDER BY
  contactLastname DESC;
  
- 3. INNER JOIN - The MySQL INNER JOIN clause matches rows in one table with rows in other tables and allows you to query rows that contain columns 
+ ---------------- INNER JOIN -----------------
+ INNER JOIN - The MySQL INNER JOIN clause matches rows in one table with rows in other tables and allows you to query rows that contain columns 
  from both tables.
  
  SELECT 
@@ -29,8 +30,9 @@ FROM
     products t1
         INNER JOIN
     productlines t2 ON t1.productline = t2.productline;
-    
-4. LEFT OUTER JOIN - When you join the t1 table to the t2 table using the LEFT JOIN clause, if a row from the left table t1 matches a row from the 
+
+---------------- LEFT OUTER JOIN -----------------
+LEFT OUTER JOIN - When you join the t1 table to the t2 table using the LEFT JOIN clause, if a row from the left table t1 matches a row from the 
 right table t2 based on the join condition ( t1.c1 = t2.c1 ), this row will be included in the result set.
 
 In case the row in the left table does not match with the row in the right table, the row in the left table is also selected and combined with 
@@ -45,6 +47,45 @@ FROM
  customers c
 LEFT JOIN orders o ON c.customerNumber = o.customerNumber;
 
+---------------- CORRELATED QUERIES -----------------
+In a SQL database query, a correlated subquery (also known as a synchronized subquery) is a subquery (a query nested inside another query) that uses values from the outer query. Because the subquery may be evaluated once for each row processed by the outer query, it can be inefficient. 
+
+Correlated select:
+SELECT last_name, salary, department_id
+ FROM employees outer
+ WHERE salary >
+                (SELECT AVG(salary)
+                 FROM employees
+                 WHERE department_id =
+                        outer.department_id);
+
+Correlated Update:
+UPDATE table1 alias1
+ SET column = (SELECT expression 
+               FROM table2 alias2
+               WHERE alias1.column =
+                     alias2.column);
+
+Correlated delete:
+DELETE FROM table1 alias1
+ WHERE column1 operator
+               (SELECT expression
+                FROM table2 alias2
+                WHERE alias1.column = alias2.column);
+
+------------- ROW_NUMBER, RANK AND DENSE_RANK ------------------
+ROW_NUMBER: It always generates a unique value for each row, even if they are same and ORDER BY clause cannot distinguish between them.
+
+select e.*, row_number() over (order by salary desc) row_number from #Employee e
+
+result:
+name    salary  row_number
+Jackob  7000    1
+Peter   5000    2
+John    4000    3
+Shane   3000    4
+Rick    3000    5
+Sid     1000    6
 5. Find the nth highest salary using the TOP keyword in SQL Server
 
 SELECT TOP 1 Salary
@@ -55,7 +96,47 @@ FROM (
       ) AS Emp
 ORDER BY Salary
 
-6. Find the nth highest salary using the LIMIT keyword
+RANK:
 
+The rank() function will assign the same rank to same values i.e. which are not distinguishable by ORDER BY. Also, the next different rank will not start from immediately next number but there will be gap i.e. if 4th and 5th employee have the same salary then they will have same rank 4, and 6th employee which has different salary will have new rank 6.
+
+select e.*, rank() over (order by salary desc) rank from #Employee e
+
+result:
+name    salary  rank
+Jackob  7000    1
+Peter   5000    2
+John    4000    3
+Shane   3000    4
+Rick    3000    4
+Sid     1000    6
+
+DENSE_RANK:
+The dense_rank function is similar to rank() window function i.e. same values will be assigned the same rank, but the next different value will have rank which is just one more than the previous rank, i.e. if 4th and 5th employee has the same salary then they will have same rank but 6th employee, which has different salary will have rank 5, unlike rank 6 as is the case with rank() function. There will be no gap on ranking in case of dense_rank() as shown in the following example:
+
+select e.*, dense_rank() over (order by salary desc) dense_rank from #Employee e
+
+Result:
+name    salary  dense_rank
+Jackob  7000    1
+Peter   5000    2
+John    4000    3
+Shane   3000    4
+Rick    3000    4
+Sid     1000    5
+
+-- difference between row_number(), rank(), and dense_rank()
+-- will only visible when there were duplicates.
+-- row_number gives consecutive ranking even with duplicate
+-- rank and dense_rank give the same ranking but rank has a jump
+-- while dense_rank doesn't have jump
+
+select e.*,
+row_number() over (order by salary desc) row_number, 
+rank() over (order by salary desc) rank,
+dense_rank() over (order by salary desc) as dense_rank 
+from #Employee e
+
+----------------- FINDING THE Nth HIGHEST SALARY -------------------
 SELECT Salary FROM Employee ORDER BY Salary DESC LIMIT n-1,1
  

@@ -1,8 +1,8 @@
 //In this program we reverse the words of a sentence without using inbuilt string functions
 
 //Examples:
-//Input : "Welcome to geeksforgeeks"
-//Output : "geeksforgeeks to Welcome"
+//Input : Welcome to geeksforgeeks
+//Output : geeksforgeeks to Welcome
 
 //Input : "I love Java Programming"
 //Output :"Programming Java love I"
