@@ -43,7 +43,72 @@ Ans. Priority can change with time but not severity. Once the severity of a part
 6. What happens if we use two @BeforeSuite annotations in the class? Will it throw error or both will execute or only one will execute?
 Ans. Only one @BeforeSuite will be executed and there may not be any sequence or idea on which one will be executed. It depends on the compiler decision at the time of execution. No error will be thrown.
 
-7. 
+7. In oop which helps the compiler process the objects differently based on their data types or class?
+Ans. Polymorphism
+
+8. In oop, which of the following is a synonym for function overloading?
+Ans. Virtual Polymorphism
+
+9. What happen when base class is privately inherited?
+Ans. private members of the base class are not inherited
+public members of the base class become private members of the derived class 
+protected members of the base class become private members of the derived class 
+
+10. Which function is defined in a class?
+Ans. Member function
+
+11. Which member functions are not inherited?
+Ans. Private
+
+12. In oop which function is given the same access as methods to private and protected data of a class?
+Ans. Friend functions
+
+13. Which concept provides facility of using object of one class inside another class?
+Ans. Composition
+
+14. What is the between @Beforetest and @Beforemethod?
+Ans. @Beforemethod will be executed before every method execution
+@BeforeTest will be executed before executing a method in the <test> tag.
+
+The test tag is present in the testng.xml. Before entrring in to that test tag this @BeforeTest will be executed. This test tag can have any number of test cases written in seperate methods. For example if a test tag has 10 test cases. Then @BeforeTest will be executed once and @BeforeMethod will be executed ten times.
+
+15. Can we create an object of abstract class?
+No.
+
+16. Lets say we have two interfaces with methods as shown below
+
+Interface1{
+Add();
+}
+
+Interface2{
+Add1();
+}
+
+Now i have an abstract class which is implementing both the interfaces.
+
+Abstract class class1 implements interface1, interface2{
+
+}
+
+In the above scenario, i need to implement both the add and add1 methods in this class. The question is i only want the compiler to show me only one method add1 for implementation. How can we do it?
+Ans. If we create an object of abstract class by using reference of interface2.
+
+Interface2 i2 = new class1();
+i2.add1();
+
+17. Difference between fluent wait and explicit wait?
+Ans. Explicit wait will have a default polling time of 30 sec. Where as in fluent wait we can specify our own polling time.
+
+18. Lets say there is an textbox in UI. I have written an xpath for it and the compiler will check for the text box to enter some text when the code is executed. At what case the compiler will not throw any error eventhough it wont find the element? It should not throw any error and go with the rest of the flow.
+Ans. This happens when the element we r searching for is not present in main frame but it is present in a different frame. If we switch to that particular frame and then we search the element and then if we dont find the element then the compiler will throw the error. If you are in one frame and searching for element present in another frame the compiler wont throw an error eventhough the element is not present.
+
+19. What is the difference between 200 and 201 response codes?
+200 - OK. What ever request you have given is successfully executed. 
+201 - Created. This is specific to POST request. When ever you give a post request it will create a new record and gives the response created. 
+
+20. What are the different classes of selenium?
+
 
 
 
