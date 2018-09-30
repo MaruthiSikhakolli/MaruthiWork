@@ -1,31 +1,16 @@
 <suite name="Suite">
-
 	<test name="Practice Grouping">
-
 		<groups>
-
 			<define name="All">
-
 				<include name="Car" />
-
 				<include name="Scooter" />
-
 			</define>
-
 			<run>
-
 				<include name="All" />
-
 			</run>
-
 		</groups>
-
 		<classes>
-
 			<class name="automationFramework.Grouping" />
-
 		</classes>
-
 	</test>
-
 </suite>

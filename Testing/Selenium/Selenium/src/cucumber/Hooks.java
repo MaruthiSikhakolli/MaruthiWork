@@ -36,7 +36,7 @@ public class Hooks {
 	//The very important thing to note here is:
 
 	//@Before(order = int) : This runs in increment order, means value 0 would run first and 1 would be after 0.
-	//@After(order = int) : This runs in decrements order, means apposite of @Before. Value 1 would run first and 0 would be after 1.
+	//@After(order = int) : This runs in decrements order, means opposite of @Before. Value 1 would run first and 0 would be after 1.
 
 	@Before(order=1)
     public void beforeScenarioWithOrder(){

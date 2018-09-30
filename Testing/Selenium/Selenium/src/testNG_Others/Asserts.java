@@ -16,32 +16,20 @@ import org.testng.annotations.Test;
 
 public class Asserts {
 
-	private static WebDriver driver;
+	@Test
+	public void f() {
+		WebDriver driver = new FirefoxDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("http://www.store.demoqa.com");
 
-  @Test
+		// Here driver will try to find out My Account link on the application
+		WebElement myAccount = driver.findElement(By.xpath(".//*[@id='account']/a"));
 
-  public void f() {
+		// Test will only continue, if the below statement is true
+		// This is to check whether the link is displayed or not
+		Assert.assertTrue(myAccount.isDisplayed());
 
-	  driver = new FirefoxDriver();
-
-      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-      driver.get("http://www.store.demoqa.com");
-
-      // Here driver will try to find out My Account link on the application
-
-      WebElement myAccount = driver.findElement(By.xpath(".//*[@id='account']/a"));
-
-      //Test will only continue, if the below statement is true
-
-      //This is to check whether the link is displayed or not
-
-      Assert.assertTrue(myAccount.isDisplayed());
-
-      //My Account will be clicked only if the above condition is true
-
-      myAccount.click();
-
-  }
-
+		// My Account will be clicked only if the above condition is true
+		myAccount.click();
+	}
 }

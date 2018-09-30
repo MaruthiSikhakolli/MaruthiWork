@@ -8,11 +8,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 
-import  java.sql.Connection;		
-import  java.sql.Statement;		
-import  java.sql.ResultSet;		
-import  java.sql.DriverManager;		
-import  java.sql.SQLException;	
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import javax.mail.BodyPart;
 import javax.mail.Message;
@@ -56,6 +57,7 @@ public class HelpingMethods {
 			e.printStackTrace();
 		}
 	}
+
 	public void readExcelDataUsingApachePOI() {
 		try {
 			File src = new File("filepath/excelsheetname.xlsx");
@@ -73,6 +75,7 @@ public class HelpingMethods {
 			System.out.println(e.getMessage());
 		}
 	}
+
 	public void readCSVData() {
 		try {
 			CSVReader reader = new CSVReader(new FileReader("C:\\Users\\mukesh_otwani\\Desktop\\demo.csv"));
@@ -91,6 +94,7 @@ public class HelpingMethods {
 			System.out.println(e.getMessage());
 		}
 	}
+
 	public void sendEmailWithAttachment() {
 		// Create object of Property file
 		Properties props = new Properties();
@@ -152,8 +156,8 @@ public class HelpingMethods {
 
 		}
 	}
-	
-	//Method to connect to DB and fetch the data
+
+	// Method to connect to DB and fetch the data
 	public void SQLConnector() throws ClassNotFoundException, SQLException {
 		String dbUrl = "jdbc:mysql://localhost:3036/emp";
 		String username = "root";
@@ -172,7 +176,13 @@ public class HelpingMethods {
 		Statement stmt = con.createStatement();
 
 		// Execute the SQL Query. Store results in ResultSet
-		ResultSet rs = stmt.executeQuery(query);
+		ResultSet rs = stmt.executeQuery(query); // executeQuery is used to execute select queries only. To execute
+													// update/delete queries
+		// we need to use updateQuery as shown below
+		String updateQuery = "update employee set salary = 1000000 where emp_id = 100";
+		String deleteQuery = "Delete from employee where emp_id = 100";
+		int updateResult = stmt.executeUpdate(updateQuery);
+		int deleteResult = stmt.executeUpdate(deleteQuery);
 
 		// While Loop to iterate through all data and print results
 		while (rs.next()) {
@@ -181,8 +191,15 @@ public class HelpingMethods {
 			System.out.println(myName + "  " + myAge);
 		}
 
+		// Prepared statement example
+		String sql = "DELETE FROM warehouses WHERE id = ?";
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		// set the corresponding param
+		pstmt.setInt(1, 100);
+		// execute the delete statement
+		pstmt.executeUpdate();
+
 		// closing DB Connection
 		con.close();
 	}
-	
 }

@@ -1,5 +1,5 @@
 Feature: This keyword defines the feature we are working on
-Scenario: This keyword defines the feature we are working on
+Scenario: This keyword defines the scenario we are working on
     Given User is on Home Page
     When User Navigate to LogIn Page
     And User enters UserName and Password
@@ -87,7 +87,7 @@ Scenario: Successful Login with Valid Credentials
 
 #Understanding the functionality of Background keyword
 Scenario: This keyword defines the feature we are working on
-Background User has access to the system
+Background: User has access to system
 	#Step-1 
 	Given User is on Home Page
 	#Step-2
@@ -96,13 +96,13 @@ Background User has access to the system
     And User enters UserName and Password
     #Step-4
     Then Message displayed LogIn Successfully
-#keyword is used to define steps which are common to all the tests in the feature file. 
+#Background keyword is used to define steps which are common to all the tests in the feature file. 
 #    For example to purchase a product, you need to do following steps:
 #    Navigate to Home Page
 #    Click on the LogIn link
 #    Enter UserName and Password
 #    Click on Submit button and should land on home page
-#When we execute Background scenario, all the steps (Steps 1 to 4) defined under n will be executed.
+#When we execute Background scenario, all the steps (Steps 1 to 4) defined under background will be executed.
 
 #It is really necessary to understand the right usage of Background. As hooks as well gives similar kind of functionality and more over 
 #almost all the task can be done by hooks as well. This is why it is critical to use the background at the right place in the test. 
