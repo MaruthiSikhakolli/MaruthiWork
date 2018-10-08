@@ -86,15 +86,6 @@ John    4000    3
 Shane   3000    4
 Rick    3000    5
 Sid     1000    6
-5. Find the nth highest salary using the TOP keyword in SQL Server
-
-SELECT TOP 1 Salary
-FROM (
-      SELECT DISTINCT TOP N Salary
-      FROM Employee
-      ORDER BY Salary DESC
-      ) AS Emp
-ORDER BY Salary
 
 RANK:
 
@@ -139,4 +130,14 @@ from #Employee e
 
 ----------------- FINDING THE Nth HIGHEST SALARY -------------------
 SELECT Salary FROM Employee ORDER BY Salary DESC LIMIT n-1,1
+
+Using TOP keyword:
+
+SELECT TOP 1 Salary
+FROM (
+      SELECT DISTINCT TOP N Salary
+      FROM Employee
+      ORDER BY Salary DESC
+      ) AS Emp
+ORDER BY Salary
  
