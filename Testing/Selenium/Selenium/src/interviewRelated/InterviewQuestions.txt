@@ -109,6 +109,32 @@ Ans. This happens when the element we r searching for is not present in main fra
 
 20. What are the different classes of selenium?
 
+21. Why do we upcast any browser driver class object to WebDriver?
+OR
+Why do we not upcast to SearchContext or RemoteWebDriver?
+
+A: In selenium, maximum time when we create an object of any browser driver class, we do upcast.
+
+E.g. WebDriver driver= new FirefoxDriver();
+
+Reasons are as below:
+
+   1. You can launch any browser through single browser factory method. (We will see soon how)
+   2. It is a good programming practice to upcast the object to maximum level possible keeping in mind that you should not loose important functionalities.
+   3. If we upcast object to SearchContext, it will not be so feasible as it has only two methods. To use other important methods, we need to do down casting.
+   4. Keeping 2nd point in mind, We can upcast till WebDriver as we are not making it difficult to use important methods because of major concept of overriding in java. So, we do not upcast to RemoteWebDriver.
+   5. Remember, there is no such mandatory rule that you need to upcast or downcast. It is just way of proper programming.
+
+22. Why do we downcast object execute javascript?
+
+A: We do not downcast always to run javascript until object is upcasted to WebDriver i.e., no need to do downcasting in below case:
+FirefoxDriver driver2= new FirefoxDriver();
+
+We can run javascript directly because execute() method will be visible/accessible to driver2 object.
+
+But, if we write as below:
+WebDriver driver= new FirefoxDriver();
+We must need to downcast it to JavaScriptExecutor to make execute() method visible to object.
 
 
 
