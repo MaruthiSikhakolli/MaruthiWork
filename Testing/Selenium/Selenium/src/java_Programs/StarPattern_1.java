@@ -12,7 +12,7 @@ package java_Programs;
 //				*
 public class StarPattern_1 {
 	public static void main(String[] args) {
-		printStars(50);
+		printStars(10);
 	}
 	
 	public static void printStars(int n) {

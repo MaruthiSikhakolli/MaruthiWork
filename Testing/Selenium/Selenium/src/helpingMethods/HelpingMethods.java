@@ -41,7 +41,6 @@ import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
 public class HelpingMethods {
-
 	public void readExcelDataUsingJxl() {
 		File src = new File("./data/testdata.xls");
 		try {
