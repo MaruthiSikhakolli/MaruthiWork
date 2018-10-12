@@ -1,0 +1,18 @@
+1. We have two threads. The rate of burning of threads is different. The total time taken to burn the thread is 1hour. How can we calculate 30 min using the two threads.
+Ans. Take a thread and burn it on both the ends. Since the total time to burn the thread is one hour, with in 30 min the whole thread will burn.
+
+2. Using the same above threads, how can we measure 15 min?
+Ans. First take a thread and burn it on both sides and at the same time burn the second thread on one side. After 30 min the thread which is burned on both sides will complete. Now burn the other end of the second thread which is burning. Now the second thread takes 15 min to complete. 
+
+3. We have five '5' as shown below. Use arithematic operations and make the equation valid. We need to use all the five's. Give all possible solutions.
+Equation : 5 5 5 5 5 = 100
+Ans. 
+1.   5 x 5 x (5 – 5/5)
+
+2.   5 x (5 + 5 + 5 + 5)
+
+3.   5 x 5 x 5 – 5 x 5
+
+4.   (5 + 5) ^ ((5+5)/5)
+
+5.   5! – (5 + 5 + 5 + 5)
